@@ -1,2 +1,2 @@
-# prism-mmm
-Marketing mix modeling is a statistical causal inference and forecasting methodology used to estimate the impact of various marketing tactics on product sales. This project is just that.
+# Prism MMM
+A Marketing Mix Modelling toolkit for decomposing and simulating the impact of marketing channels on revenue.
