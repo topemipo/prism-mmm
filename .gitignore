@@ -10,8 +10,14 @@ __pycache__/
 # Environment variables
 .env
 
+# Streamlit secrets 
+.streamlit/secrets.toml
+
 # VS Code
 .vscode/
+
+# Claude
+.claude/
 
 # Mac
 .DS_Store
@@ -22,3 +28,10 @@ __pycache__/
 # Logs
 logs/
 *.log
+
+# Binaries
+bin/
+
+# MLflow
+mlruns.db
+mlruns/
