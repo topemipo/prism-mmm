@@ -35,3 +35,6 @@ bin/
 # MLflow
 mlruns.db
 mlruns/
+
+# Others
+TODO.md

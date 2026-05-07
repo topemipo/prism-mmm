@@ -260,13 +260,21 @@ with st.sidebar:
 # ── Main area ─────────────────────────────────────────────────────────────────
 st.markdown("<h1 style='text-align: center;'>Media Budget Optimiser</h1>", unsafe_allow_html=True)
 st.markdown(
+    "<p style='text-align: center;'>"
+    "<a href='https://github.com/topemipo/prism-mmm' target='_blank'>GitHub Repository</a>"
+    "</p>",
+    unsafe_allow_html=True,
+)
+st.markdown(
     "Each scenario has its own **budget** and its own **per-channel bounds**. "
     "The optimiser finds the revenue-maximising spend split within those constraints. "
     "All scenarios are compared against the current baseline."
 )
 
-n_scenarios = st.number_input(
-    "Number of scenarios to configure", min_value=1, max_value=6, value=1, step=1,
+_col_label, _col_input = st.columns([3, 1])
+_col_label.markdown("**Number of scenarios to configure**")
+n_scenarios = _col_input.number_input(
+    "scenarios", min_value=1, max_value=6, value=1, step=1, label_visibility="collapsed",
 )
 
 st.subheader("Scenario Configuration")
