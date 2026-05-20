@@ -3,19 +3,12 @@ import requests
 import streamlit as st
 
 from allocation import marginal_roi
+from app_config import load_model_config
 
-MEDIA_COLS = ['tv_S', 'ooh_S', 'print_S', 'facebook_S', 'search_S']
-CHANNEL_LABELS = {
-    'tv_S': 'TV', 'ooh_S': 'OOH', 'print_S': 'Print',
-    'facebook_S': 'Facebook', 'search_S': 'Search',
-}
-HILL_PARAMS = {
-    'tv_S':       {'decay': 0.60, 'K': 0.50, 'S': 2.5},
-    'ooh_S':      {'decay': 0.20, 'K': 0.40, 'S': 2.0},
-    'print_S':    {'decay': 0.10, 'K': 0.12, 'S': 1.3},
-    'facebook_S': {'decay': 0.09, 'K': 0.09, 'S': 1.1},
-    'search_S':   {'decay': 0.05, 'K': 0.05, 'S': 0.5},
-}
+CONFIG = load_model_config()
+MEDIA_COLS = CONFIG['media_cols']
+CHANNEL_LABELS = CONFIG['channel_labels']
+HILL_PARAMS = CONFIG['hill_params']
 GROQ_MODEL   = "llama-3.3-70b-versatile"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 

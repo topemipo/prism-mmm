@@ -14,31 +14,16 @@ from transformations import geometric_adstock
 from allocation import run_optimisation, build_comparison
 from plots import plot_overview_bars, plot_channel_heatmaps, plot_response_curves
 from ai import get_ai_recommendation
+from app_config import load_model_config
 
 # ── Constants ─────────────────────────────────────────────────────────────────
-MEDIA_COLS = ['tv_S', 'ooh_S', 'print_S', 'facebook_S', 'search_S']
-CHANNEL_LABELS = {
-    'tv_S': 'TV', 'ooh_S': 'OOH', 'print_S': 'Print',
-    'facebook_S': 'Facebook', 'search_S': 'Search',
-}
-HILL_PARAMS = {
-    'tv_S':       {'decay': 0.60, 'K': 0.50, 'S': 2.5},
-    'ooh_S':      {'decay': 0.20, 'K': 0.40, 'S': 2.0},
-    'print_S':    {'decay': 0.10, 'K': 0.12, 'S': 1.3},
-    'facebook_S': {'decay': 0.09, 'K': 0.09, 'S': 1.1},
-    'search_S':   {'decay': 0.05, 'K': 0.05, 'S': 0.5},
-}
-SAT_COLS = [
-    'tv_S_adstock_norm_sat', 'ooh_S_adstock_norm_sat', 'print_S_adstock_norm_sat',
-    'facebook_S_adstock_norm_sat', 'search_S_adstock_norm_sat',
-]
-CONTROL_COLS = (
-    ['competitor_sales_norm', 'is_holiday', 'is_christmas', 'is_new_year',
-     'is_easter_monday', 'is_whit_monday', 'is_labor_day']
-    + [f'is_week_{obs}' for obs in [25, 57, 73, 75, 109, 123]]
-    + ['event1', 'event2', 'February', 'March', 'May', 'June', 'July', 'August', 'September']
-)
-DEFAULT_WEEKLY_BUDGET = 69_851
+CONFIG = load_model_config()
+MEDIA_COLS = CONFIG['media_cols']
+CHANNEL_LABELS = CONFIG['channel_labels']
+HILL_PARAMS = CONFIG['hill_params']
+SAT_COLS = CONFIG['sat_cols']
+CONTROL_COLS = CONFIG['control_cols']
+DEFAULT_WEEKLY_BUDGET = CONFIG['default_weekly_budget']
 SCENARIO_COLOURS      = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A', '#19D3F3']
 
 _DEFAULT_BOUNDS_DF = pd.DataFrame({

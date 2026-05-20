@@ -1,0 +1,68 @@
+media_cols:
+  - tv_S
+  - ooh_S
+  - print_S
+  - facebook_S
+  - search_S
+
+channel_labels:
+  tv_S: TV
+  ooh_S: OOH
+  print_S: Print
+  facebook_S: Facebook
+  search_S: Search
+
+hill_params:
+  tv_S:
+    decay: 0.60
+    K: 0.50
+    S: 2.5
+  ooh_S:
+    decay: 0.20
+    K: 0.40
+    S: 2.0
+  print_S:
+    decay: 0.10
+    K: 0.12
+    S: 1.3
+  facebook_S:
+    decay: 0.09
+    K: 0.09
+    S: 1.1
+  search_S:
+    decay: 0.05
+    K: 0.05
+    S: 0.5
+
+sat_cols:
+  - tv_S_adstock_norm_sat
+  - ooh_S_adstock_norm_sat
+  - print_S_adstock_norm_sat
+  - facebook_S_adstock_norm_sat
+  - search_S_adstock_norm_sat
+
+control_cols:
+  - competitor_sales_norm
+  - is_holiday
+  - is_christmas
+  - is_new_year
+  - is_easter_monday
+  - is_whit_monday
+  - is_labor_day
+  - is_week_25
+  - is_week_57
+  - is_week_73
+  - is_week_75
+  - is_week_109
+  - is_week_123
+  - event1
+  - event2
+  - February
+  - March
+  - May
+  - June
+  - July
+  - August
+  - September
+
+default_weekly_budget: 69851
